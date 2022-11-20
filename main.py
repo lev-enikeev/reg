@@ -1,3 +1,4 @@
+# python -m uvicorn main:app --reload
 from typing import Union
 from pydantic import BaseModel
 from fastapi import FastAPI
