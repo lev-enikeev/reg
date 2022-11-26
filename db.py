@@ -25,5 +25,5 @@ def get_all_users(cur, conn):
 @db_connect
 def insert_new_user(cur, conn, email, password):
     cur.execute(
-        f"INSERT INTO users (email, password) VALUES ('{email}', '{password}')")
+        f"INSERT INTO users (email, password, confirmed) VALUES ('{email}', '{password}', 0)")
     conn.commit()
