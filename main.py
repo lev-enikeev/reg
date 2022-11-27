@@ -8,8 +8,7 @@ from mail import send_email
 import db
 
 origins = [
-    "http://localhost",
-    "http://localhost:5500",
+    "*"
 ]
 
 
