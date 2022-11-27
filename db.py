@@ -27,3 +27,8 @@ def insert_new_user(cur, conn, email, password):
     cur.execute(
         f"INSERT INTO users (email, password, confirmed) VALUES ('{email}', '{password}', 0)")
     conn.commit()
+
+@db_connect
+def update_email(cur, conn, email):
+    cur.execute(f"UPDATE users SET confirmed = 1 where email = '{email}' ")
+    conn.commit()
