@@ -1,7 +1,7 @@
 let button = document.querySelector(".btn")
 let error = document.querySelector(".error")
 
-button.addEventListener("click", () => {
+button.addEventListener("click", async () => {
     error.style.display = 'none'
     email = document.querySelector("#email")
     password = document.querySelector("#psw")
@@ -14,21 +14,14 @@ button.addEventListener("click", () => {
         error.textContent = "Парроли не совпадают"
         error.style.display = ''
     }
-    const formData = new FormData();
-
-    formData.append('email', 'levenikeev0@gmail.com');
-    formData.append('password', "idontkno8w1");
-    console.log(formData)
-    fetch('http://localhost:8000/register',
-        {   mode: 'no-cors',
+    await fetch('http://localhost:8000/register',
+        {   
             method: "POST",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            //data: JSON.stringify({ email: email.value, password:  password.value})
-            body: formData
-            //data: {"email":"levenikeev0@gmail.com","password":"idontkno8w1"}
+            body: JSON.stringify({ email: email.value, password:  password.value})
         }
     )
     .then(function(res){ console.log(res) })
